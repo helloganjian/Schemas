@@ -1,0 +1,85 @@
+ProductsSchema = {
+	_id: ObjectId,
+	display_name: String,
+	brand: String,
+	genders: Array,
+	desciption: Array,
+	models: [{
+		model_code: ObjectId,
+		active_price: Number,
+		discount_price: Number, 
+		color_label: String,
+		videos: Array,
+		images: [{
+			link: String,
+			thumb_link: String
+		}],
+		lifestage: Number,
+		items: [{
+			item_code: ObjectId,
+			active_price: Number,
+			discount_price: Number,
+			size_label: String,
+			stock: Number,
+			lifestage: Number,
+			gross_width: Number,
+			gross_height: Number,
+			gross_length: Number
+		}]
+	}]
+}
+
+UsersSchema = {
+	_id: ObjectId,
+	first_name: String,
+	second_name: String,
+	birthday: Date,
+	tel_number: String,
+	gender: String,
+	avatar: String,
+	email: String,
+	address: String,
+	location: String,
+	longitude: String,
+	latitude: String,
+	login_time: Date,
+	register_time: Date,
+	status: Number
+}
+
+CartsSchema = {
+	id: ObjectId,
+	user_id: ObjectId,
+	items: [{
+		sku: ObjectId,
+		count: Number,
+		status: Number,
+		add_time: Date
+	}],
+	price_count: Number,
+	number_count: Number,
+	discount_persentage: Number,
+	status: Number,
+	update_time: Date
+}
+
+OrdersSchema = {
+	id: ObjectId,
+	user_id: ObjectId,
+	items: [{
+		sku: ObjectId,
+		count: Number,
+		status: Number,
+		add_time: Date
+	}],
+	price_count: Number,
+	number_count: Number,
+	delivery: {
+		shipping_type: String,
+		fee: Number,
+	},
+	address: Array
+	discount_persentage: Number,
+	status: Number,
+	update_time: Date
+}
